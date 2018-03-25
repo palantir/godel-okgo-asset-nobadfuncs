@@ -18,10 +18,8 @@ import (
 	"encoding/json"
 	"io"
 
-	"github.com/go-yaml/yaml"
 	"github.com/palantir/okgo/checker"
 	"github.com/palantir/okgo/okgo"
-	"github.com/pkg/errors"
 )
 
 const (
@@ -29,39 +27,19 @@ const (
 	Priority okgo.CheckerPriority = 0
 )
 
-func Creator() checker.Creator {
-	return checker.NewCreator(
-		TypeName,
-		Priority,
-		func(cfgYML []byte) (okgo.Checker, error) {
-			var cfg nobadfuncsCheckCfg
-			if err := yaml.Unmarshal(cfgYML, &cfg); err != nil {
-				return nil, errors.Wrapf(err, "failed to unmarshal configuration YAML %q", string(cfgYML))
-			}
-			return &nobadfuncsCheck{
-				BadFuncs: cfg.BadFuncs,
-			}, nil
-		},
-	)
-}
-
-type nobadfuncsCheck struct {
+type Checker struct {
 	BadFuncs map[string]string
 }
 
-type nobadfuncsCheckCfg struct {
-	BadFuncs map[string]string `yaml:"bad-funcs"`
-}
-
-func (c *nobadfuncsCheck) Type() (okgo.CheckerType, error) {
+func (c *Checker) Type() (okgo.CheckerType, error) {
 	return TypeName, nil
 }
 
-func (c *nobadfuncsCheck) Priority() (okgo.CheckerPriority, error) {
+func (c *Checker) Priority() (okgo.CheckerPriority, error) {
 	return Priority, nil
 }
 
-func (c *nobadfuncsCheck) Check(pkgPaths []string, pkgDir string, stdout io.Writer) {
+func (c *Checker) Check(pkgPaths []string, pkgDir string, stdout io.Writer) {
 	cfgJSON, err := json.Marshal(c.BadFuncs)
 	if err != nil {
 		okgo.WriteErrorAsIssue(err, stdout)
@@ -80,6 +58,6 @@ func (c *nobadfuncsCheck) Check(pkgPaths []string, pkgDir string, stdout io.Writ
 	}, stdout)
 }
 
-func (c *nobadfuncsCheck) RunCheckCmd(args []string, stdout io.Writer) {
+func (c *Checker) RunCheckCmd(args []string, stdout io.Writer) {
 	checker.AmalgomatedRunRawCheck(string(TypeName), args, stdout)
 }

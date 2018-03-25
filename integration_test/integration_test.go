@@ -18,13 +18,14 @@ import (
 	"testing"
 
 	"github.com/nmiyake/pkg/gofiles"
+	"github.com/palantir/godel/framework/pluginapitester"
 	"github.com/palantir/godel/pkg/products"
 	"github.com/palantir/okgo/okgotester"
 	"github.com/stretchr/testify/require"
 )
 
 const (
-	okgoPluginLocator  = "com.palantir.okgo:okgo-plugin:1.0.0-rc1"
+	okgoPluginLocator  = "com.palantir.okgo:check-plugin:1.0.0-rc3"
 	okgoPluginResolver = "https://palantir.bintray.com/releases/{{GroupPath}}/{{Product}}/{{Version}}/{{Product}}-{{Version}}-{{OS}}-{{Arch}}.tgz"
 
 	godelYML = `exclude:
@@ -36,13 +37,13 @@ const (
 `
 )
 
-func TestNobadfuncs(t *testing.T) {
+func TestCheck(t *testing.T) {
 	assetPath, err := products.Bin("nobadfuncs-asset")
 	require.NoError(t, err)
 
 	configFiles := map[string]string{
 		"godel/config/godel.yml": godelYML,
-		"godel/config/check.yml": `
+		"godel/config/check-plugin.yml": `
 checks:
   nobadfuncs:
     config:
@@ -51,9 +52,13 @@ checks:
 `,
 	}
 
+	pluginProvider, err := pluginapitester.NewPluginProviderFromLocator(okgoPluginLocator, okgoPluginResolver)
+	require.NoError(t, err)
+
 	okgotester.RunAssetCheckTest(t,
-		okgoPluginLocator, okgoPluginResolver,
-		assetPath, "nobadfuncs",
+		pluginProvider,
+		pluginapitester.NewAssetProvider(assetPath),
+		"nobadfuncs",
 		".",
 		[]okgotester.AssetTestCase{
 			{
@@ -76,6 +81,7 @@ func Foo() {
 				WantOutput: `Running nobadfuncs...
 foo.go:6:5: do not call os.Exit directly
 Finished nobadfuncs
+Check(s) produced output: [nobadfuncs]
 `,
 			},
 			{
@@ -102,7 +108,210 @@ func Foo() {
 				WantOutput: `Running nobadfuncs...
 ../foo.go:6:5: do not call os.Exit directly
 Finished nobadfuncs
+Check(s) produced output: [nobadfuncs]
 `,
+			},
+		},
+	)
+}
+
+func TestUpgradeConfig(t *testing.T) {
+	pluginProvider, err := pluginapitester.NewPluginProviderFromLocator(okgoPluginLocator, okgoPluginResolver)
+	require.NoError(t, err)
+
+	assetPath, err := products.Bin("nobadfuncs-asset")
+	require.NoError(t, err)
+	assetProvider := pluginapitester.NewAssetProvider(assetPath)
+
+	pluginapitester.RunUpgradeConfigTest(t,
+		pluginProvider,
+		[]pluginapitester.AssetProvider{assetProvider},
+		[]pluginapitester.UpgradeConfigTestCase{
+			{
+				Name: `legacy configuration with empty "args" field is updated`,
+				ConfigFiles: map[string]string{
+					"godel/config/godel.yml": godelYML,
+					"godel/config/check-plugin.yml": `
+legacy-config: true
+checks:
+  nobadfuncs:
+    filters:
+      - value: "should have comment or be unexported"
+      - type: name
+        value: ".*.pb.go"
+`,
+				},
+				WantOutput: `Upgraded configuration for check-plugin.yml
+`,
+				WantFiles: map[string]string{
+					"godel/config/check-plugin.yml": `release-tag: ""
+checks:
+  nobadfuncs:
+    skip: false
+    priority: null
+    config: {}
+    filters:
+    - type: ""
+      value: should have comment or be unexported
+    exclude:
+      names:
+      - .*.pb.go
+      paths: []
+exclude:
+  names: []
+  paths: []
+`,
+				},
+			},
+			{
+				Name: `legacy configuration with "config" args is upgraded`,
+				ConfigFiles: map[string]string{
+					"godel/config/godel.yml": godelYML,
+					"godel/config/check-plugin.yml": `
+legacy-config: true
+checks:
+  nobadfuncs:
+    args:
+      - "--config"
+      - |
+        {
+          "func (*net/http.Client).Do(*net/http.Request) (*net/http.Response, error)": "use of http.Do is not allowed because it can leak connections -- use safehttp.Do instead"
+        }
+`,
+				},
+				WantOutput: `Upgraded configuration for check-plugin.yml
+`,
+				WantFiles: map[string]string{
+					"godel/config/check-plugin.yml": `release-tag: ""
+checks:
+  nobadfuncs:
+    skip: false
+    priority: null
+    config:
+      bad-funcs:
+        func (*net/http.Client).Do(*net/http.Request) (*net/http.Response, error): use
+          of http.Do is not allowed because it can leak connections -- use safehttp.Do
+          instead
+    filters: []
+    exclude:
+      names: []
+      paths: []
+exclude:
+  names: []
+  paths: []
+`,
+				},
+			},
+			{
+				Name: `legacy configuration with args other than "config" fails`,
+				ConfigFiles: map[string]string{
+					"godel/config/godel.yml": godelYML,
+					"godel/config/check-plugin.yml": `
+legacy-config: true
+checks:
+  nobadfuncs:
+    args:
+      - "-help"
+`,
+				},
+				WantError: true,
+				WantOutput: `Failed to upgrade configuration:
+	godel/config/check-plugin.yml: failed to upgrade check "nobadfuncs" legacy configuration: failed to upgrade asset configuration: nobadfuncs-asset only supports legacy configuration if the first element in "args" is "--config"
+`,
+				WantFiles: map[string]string{
+					"godel/config/check-plugin.yml": `
+legacy-config: true
+checks:
+  nobadfuncs:
+    args:
+      - "-help"
+`,
+				},
+			},
+			{
+				Name: `legacy configuration with args that starts with "--config" but has more than 2 arguments fails"`,
+				ConfigFiles: map[string]string{
+					"godel/config/godel.yml": godelYML,
+					"godel/config/check-plugin.yml": `
+legacy-config: true
+checks:
+  nobadfuncs:
+    args:
+      - "--config"
+      - a
+      - b
+`,
+				},
+				WantError: true,
+				WantOutput: `Failed to upgrade configuration:
+	godel/config/check-plugin.yml: failed to upgrade check "nobadfuncs" legacy configuration: failed to upgrade asset configuration: nobadfuncs-asset only supports legacy configuration if "args" has exactly one element after "--config"
+`,
+				WantFiles: map[string]string{
+					"godel/config/check-plugin.yml": `
+legacy-config: true
+checks:
+  nobadfuncs:
+    args:
+      - "--config"
+      - a
+      - b
+`,
+				},
+			},
+			{
+				Name: `legacy configuration with "--config" argument that is not a valid JSON map fails`,
+				ConfigFiles: map[string]string{
+					"godel/config/godel.yml": godelYML,
+					"godel/config/check-plugin.yml": `
+legacy-config: true
+checks:
+  nobadfuncs:
+    args:
+      - "--config"
+      - |
+        {"foo":"bar",}
+`,
+				},
+				WantError: true,
+				WantOutput: `Failed to upgrade configuration:
+	godel/config/check-plugin.yml: failed to upgrade check "nobadfuncs" legacy configuration: failed to upgrade asset configuration: failed to unmarshal second element of "args" in nobadfuncs-asset legacy configuration as JSON map: invalid character '}' looking for beginning of object key string
+`,
+				WantFiles: map[string]string{
+					"godel/config/check-plugin.yml": `
+legacy-config: true
+checks:
+  nobadfuncs:
+    args:
+      - "--config"
+      - |
+        {"foo":"bar",}
+`,
+				},
+			},
+			{
+				Name: `valid v0 config works`,
+				ConfigFiles: map[string]string{
+					"godel/config/godel.yml": godelYML,
+					"godel/config/check-plugin.yml": `
+checks:
+  nobadfuncs:
+    config:
+      # comment
+      bad-funcs:
+        func (*net/http.Client).Do(*net/http.Request) (*net/http.Response, error): use of http.Do is not allowed because it can leak connections -- use safehttp.Do instead
+`,
+				},
+				WantOutput: ``,
+				WantFiles: map[string]string{
+					"godel/config/check-plugin.yml": `
+checks:
+  nobadfuncs:
+    config:
+      # comment
+      bad-funcs:
+        func (*net/http.Client).Do(*net/http.Request) (*net/http.Response, error): use of http.Do is not allowed because it can leak connections -- use safehttp.Do instead
+`,
+				},
 			},
 		},
 	)
