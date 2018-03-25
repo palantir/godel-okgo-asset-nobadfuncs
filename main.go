@@ -22,7 +22,8 @@ import (
 	"github.com/palantir/pkg/cobracli"
 
 	"github.com/palantir/godel-okgo-asset-nobadfuncs/generated_src"
-	"github.com/palantir/godel-okgo-asset-nobadfuncs/nobadfuncs"
+	"github.com/palantir/godel-okgo-asset-nobadfuncs/nobadfuncs/config"
+	"github.com/palantir/godel-okgo-asset-nobadfuncs/nobadfuncs/creator"
 )
 
 func main() {
@@ -32,6 +33,6 @@ func main() {
 func checkMain(osArgs []string) int {
 	os.Args = osArgs
 	var debugFlagVal bool
-	rootCmd := checker.AssetRootCmd(nobadfuncs.Creator(), "run nobadfuncs check")
+	rootCmd := checker.AssetRootCmd(creator.Nobadfuncs(), config.UpgradeConfig, "run nobadfuncs check")
 	return cobracli.ExecuteWithDefaultParamsWithVersion(rootCmd, &debugFlagVal, "")
 }
