@@ -27,17 +27,17 @@ import (
 const (
 	okgoPluginLocator  = "com.palantir.okgo:check-plugin:1.0.0-rc4"
 	okgoPluginResolver = "https://palantir.bintray.com/releases/{{GroupPath}}/{{Product}}/{{Version}}/{{Product}}-{{Version}}-{{OS}}-{{Arch}}.tgz"
+)
 
-	godelYML = `exclude:
+func TestCheck(t *testing.T) {
+	const godelYML = `exclude:
   names:
     - "\\..+"
     - "vendor"
   paths:
     - "godel"
 `
-)
 
-func TestCheck(t *testing.T) {
 	assetPath, err := products.Bin("nobadfuncs-asset")
 	require.NoError(t, err)
 
@@ -130,9 +130,7 @@ func TestUpgradeConfig(t *testing.T) {
 			{
 				Name: `legacy configuration with empty "args" field is updated`,
 				ConfigFiles: map[string]string{
-					"godel/config/godel.yml": godelYML,
-					"godel/config/check-plugin.yml": `
-legacy-config: true
+					"godel/config/check.yml": `
 checks:
   nobadfuncs:
     filters:
@@ -141,6 +139,7 @@ checks:
         value: ".*.pb.go"
 `,
 				},
+				Legacy: true,
 				WantOutput: `Upgraded configuration for check-plugin.yml
 `,
 				WantFiles: map[string]string{
@@ -166,9 +165,7 @@ exclude:
 			{
 				Name: `legacy configuration with "config" args is upgraded`,
 				ConfigFiles: map[string]string{
-					"godel/config/godel.yml": godelYML,
-					"godel/config/check-plugin.yml": `
-legacy-config: true
+					"godel/config/check.yml": `
 checks:
   nobadfuncs:
     args:
@@ -179,6 +176,7 @@ checks:
         }
 `,
 				},
+				Legacy: true,
 				WantOutput: `Upgraded configuration for check-plugin.yml
 `,
 				WantFiles: map[string]string{
@@ -205,22 +203,20 @@ exclude:
 			{
 				Name: `legacy configuration with args other than "config" fails`,
 				ConfigFiles: map[string]string{
-					"godel/config/godel.yml": godelYML,
-					"godel/config/check-plugin.yml": `
-legacy-config: true
+					"godel/config/check.yml": `
 checks:
   nobadfuncs:
     args:
       - "-help"
 `,
 				},
+				Legacy:    true,
 				WantError: true,
 				WantOutput: `Failed to upgrade configuration:
-	godel/config/check-plugin.yml: failed to upgrade check "nobadfuncs" legacy configuration: failed to upgrade asset configuration: nobadfuncs-asset only supports legacy configuration if the first element in "args" is "--config"
+	godel/config/check-plugin.yml: failed to upgrade configuration: failed to upgrade check "nobadfuncs" legacy configuration: failed to upgrade asset configuration: nobadfuncs-asset only supports legacy configuration if the first element in "args" is "--config"
 `,
 				WantFiles: map[string]string{
-					"godel/config/check-plugin.yml": `
-legacy-config: true
+					"godel/config/check.yml": `
 checks:
   nobadfuncs:
     args:
@@ -231,9 +227,7 @@ checks:
 			{
 				Name: `legacy configuration with args that starts with "--config" but has more than 2 arguments fails"`,
 				ConfigFiles: map[string]string{
-					"godel/config/godel.yml": godelYML,
-					"godel/config/check-plugin.yml": `
-legacy-config: true
+					"godel/config/check.yml": `
 checks:
   nobadfuncs:
     args:
@@ -242,13 +236,13 @@ checks:
       - b
 `,
 				},
+				Legacy:    true,
 				WantError: true,
 				WantOutput: `Failed to upgrade configuration:
-	godel/config/check-plugin.yml: failed to upgrade check "nobadfuncs" legacy configuration: failed to upgrade asset configuration: nobadfuncs-asset only supports legacy configuration if "args" has exactly one element after "--config"
+	godel/config/check-plugin.yml: failed to upgrade configuration: failed to upgrade check "nobadfuncs" legacy configuration: failed to upgrade asset configuration: nobadfuncs-asset only supports legacy configuration if "args" has exactly one element after "--config"
 `,
 				WantFiles: map[string]string{
-					"godel/config/check-plugin.yml": `
-legacy-config: true
+					"godel/config/check.yml": `
 checks:
   nobadfuncs:
     args:
@@ -261,9 +255,7 @@ checks:
 			{
 				Name: `legacy configuration with "--config" argument that is not a valid JSON map fails`,
 				ConfigFiles: map[string]string{
-					"godel/config/godel.yml": godelYML,
-					"godel/config/check-plugin.yml": `
-legacy-config: true
+					"godel/config/check.yml": `
 checks:
   nobadfuncs:
     args:
@@ -272,13 +264,13 @@ checks:
         {"foo":"bar",}
 `,
 				},
+				Legacy:    true,
 				WantError: true,
 				WantOutput: `Failed to upgrade configuration:
-	godel/config/check-plugin.yml: failed to upgrade check "nobadfuncs" legacy configuration: failed to upgrade asset configuration: failed to unmarshal second element of "args" in nobadfuncs-asset legacy configuration as JSON map: invalid character '}' looking for beginning of object key string
+	godel/config/check-plugin.yml: failed to upgrade configuration: failed to upgrade check "nobadfuncs" legacy configuration: failed to upgrade asset configuration: failed to unmarshal second element of "args" in nobadfuncs-asset legacy configuration as JSON map: invalid character '}' looking for beginning of object key string
 `,
 				WantFiles: map[string]string{
-					"godel/config/check-plugin.yml": `
-legacy-config: true
+					"godel/config/check.yml": `
 checks:
   nobadfuncs:
     args:
@@ -291,7 +283,6 @@ checks:
 			{
 				Name: `valid v0 config works`,
 				ConfigFiles: map[string]string{
-					"godel/config/godel.yml": godelYML,
 					"godel/config/check-plugin.yml": `
 checks:
   nobadfuncs:
