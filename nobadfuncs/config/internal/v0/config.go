@@ -22,7 +22,7 @@ import (
 type Config struct {
 	// BadFuncs stores the functions that are not allowed. The keys are the function signature and the values are the
 	// reason the call is not allowed (which may be blank).
-	BadFuncs map[string]string `yaml:"bad-funcs"`
+	BadFuncs map[string]string `yaml:"bad-funcs,omitempty"`
 }
 
 func UpgradeConfig(cfgBytes []byte) ([]byte, error) {

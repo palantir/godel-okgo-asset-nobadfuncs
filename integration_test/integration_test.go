@@ -25,7 +25,7 @@ import (
 )
 
 const (
-	okgoPluginLocator  = "com.palantir.okgo:check-plugin:1.0.0-rc4"
+	okgoPluginLocator  = "com.palantir.okgo:check-plugin:1.0.0-rc6"
 	okgoPluginResolver = "https://palantir.bintray.com/releases/{{GroupPath}}/{{Product}}/{{Version}}/{{Product}}-{{Version}}-{{OS}}-{{Arch}}.tgz"
 )
 
@@ -143,22 +143,13 @@ checks:
 				WantOutput: `Upgraded configuration for check-plugin.yml
 `,
 				WantFiles: map[string]string{
-					"godel/config/check-plugin.yml": `release-tag: ""
-checks:
+					"godel/config/check-plugin.yml": `checks:
   nobadfuncs:
-    skip: false
-    priority: null
-    config: {}
     filters:
-    - type: ""
-      value: should have comment or be unexported
+    - value: should have comment or be unexported
     exclude:
       names:
       - .*.pb.go
-      paths: []
-exclude:
-  names: []
-  paths: []
 `,
 				},
 			},
@@ -180,23 +171,13 @@ checks:
 				WantOutput: `Upgraded configuration for check-plugin.yml
 `,
 				WantFiles: map[string]string{
-					"godel/config/check-plugin.yml": `release-tag: ""
-checks:
+					"godel/config/check-plugin.yml": `checks:
   nobadfuncs:
-    skip: false
-    priority: null
     config:
       bad-funcs:
         func (*net/http.Client).Do(*net/http.Request) (*net/http.Response, error): use
           of http.Do is not allowed because it can leak connections -- use safehttp.Do
           instead
-    filters: []
-    exclude:
-      names: []
-      paths: []
-exclude:
-  names: []
-  paths: []
 `,
 				},
 			},
