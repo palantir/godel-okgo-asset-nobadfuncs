@@ -23,8 +23,8 @@
 required = ["github.com/palantir/go-nobadfuncs"]
 
 [[constraint]]
-  name = "github.com/go-yaml/yaml"
-  version = "2.1.1"
+  name = "github.com/palantir/go-nobadfuncs"
+  version = "1.0.0"
 
 [[constraint]]
   name = "github.com/palantir/amalgomate"
@@ -48,7 +48,7 @@ required = ["github.com/palantir/go-nobadfuncs"]
 
 [[constraint]]
   name = "github.com/spf13/cobra"
-  version = "0.0.1"
+  version = "0.0.2"
 
 [[constraint]]
   branch = "master"
