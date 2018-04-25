@@ -22,8 +22,6 @@ import (
 	"github.com/palantir/godel-okgo-asset-nobadfuncs/generated_src/internal/github.com/palantir/go-nobadfuncs/cmd"
 )
 
-var debugFlagVal bool
-
 func AmalgomatedMain() {
-	os.Exit(cobracli.ExecuteWithDefaultParamsWithVersion(cmd.RootCmd, &debugFlagVal, ""))
+	os.Exit(cobracli.ExecuteWithDefaultParams(cmd.RootCmd))
 }
