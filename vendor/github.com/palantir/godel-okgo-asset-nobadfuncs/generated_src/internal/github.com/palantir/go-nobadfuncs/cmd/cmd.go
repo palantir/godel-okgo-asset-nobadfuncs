@@ -25,9 +25,9 @@ import (
 )
 
 var (
-	RootCmd = &cobra.Command{
-		Use:   "nobadfuncs [flags] [packages]",
-		Short: "verifies that blacklisted functions are not called",
+	RootCmd	= &cobra.Command{
+		Use:	"nobadfuncs [flags] [packages]",
+		Short:	"verifies that blacklisted functions are not called",
 		RunE: func(cmd *cobra.Command, args []string) error {
 			if printAllFlagVal {
 				// if print-all flag is specified, perform print all action
@@ -37,8 +37,8 @@ var (
 		},
 	}
 
-	printAllFlagVal   bool
-	configJSONFlagVal string
+	printAllFlagVal		bool
+	configJSONFlagVal	string
 )
 
 func init() {
