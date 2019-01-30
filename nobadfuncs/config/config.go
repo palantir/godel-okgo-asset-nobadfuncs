@@ -16,7 +16,7 @@ package config
 
 import (
 	"github.com/palantir/godel-okgo-asset-nobadfuncs/nobadfuncs"
-	"github.com/palantir/godel-okgo-asset-nobadfuncs/nobadfuncs/config/internal/v0"
+	v0 "github.com/palantir/godel-okgo-asset-nobadfuncs/nobadfuncs/config/internal/v0"
 )
 
 type Nobadfuncs v0.Config

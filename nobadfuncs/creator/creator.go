@@ -17,7 +17,7 @@ package creator
 import (
 	"github.com/palantir/okgo/checker"
 	"github.com/palantir/okgo/okgo"
-	"gopkg.in/yaml.v2"
+	yaml "gopkg.in/yaml.v2"
 
 	"github.com/palantir/godel-okgo-asset-nobadfuncs/nobadfuncs"
 	"github.com/palantir/godel-okgo-asset-nobadfuncs/nobadfuncs/config"

@@ -16,7 +16,7 @@ package v0
 
 import (
 	"github.com/pkg/errors"
-	"gopkg.in/yaml.v2"
+	yaml "gopkg.in/yaml.v2"
 )
 
 type Config struct {
