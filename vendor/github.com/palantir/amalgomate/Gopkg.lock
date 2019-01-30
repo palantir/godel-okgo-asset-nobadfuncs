@@ -22,20 +22,18 @@
 [[projects]]
   branch = "develop"
   name = "github.com/nmiyake/pkg"
-  packages = ["dirs","errorstringer","gofiles"]
+  packages = [
+    "dirs",
+    "errorstringer",
+    "gofiles"
+  ]
   revision = "b64318170fdef93b4462420e0badef8050dbb7ec"
 
 [[projects]]
   branch = "master"
-  name = "github.com/palantir/godel"
-  packages = ["framework/builtintasks/installupdate/layout","framework/godel","framework/godellauncher","framework/pluginapi","framework/verifyorder","pkg/dirchecksum"]
-  revision = "122825f4fe5ea35f69ed662671e16021ef3405e2"
-
-[[projects]]
-  branch = "master"
   name = "github.com/palantir/pkg"
-  packages = ["cobracli","matcher","specdir"]
-  revision = "72fc21d797a58b78a674190cf65f6238c949b570"
+  packages = ["cobracli"]
+  revision = "23395ebeee5df1083443a6261e5f674a76af91b6"
 
 [[projects]]
   name = "github.com/pkg/errors"
@@ -52,8 +50,8 @@
 [[projects]]
   name = "github.com/spf13/cobra"
   packages = ["."]
-  revision = "7b2c5ac9fc04fc5efafb60700713d4fa609b777b"
-  version = "v0.0.1"
+  revision = "a1f051bc3eba734da4772d60e2d677f47cf93ef4"
+  version = "v0.0.2"
 
 [[projects]]
   name = "github.com/spf13/pflag"
@@ -63,9 +61,12 @@
 
 [[projects]]
   name = "github.com/stretchr/testify"
-  packages = ["assert","require"]
-  revision = "69483b4bd14f5845b5a1e55bca19e954e827f1d0"
-  version = "v1.1.4"
+  packages = [
+    "assert",
+    "require"
+  ]
+  revision = "12b6f73e6084dad08a7c6e575284b177ecafbc71"
+  version = "v1.2.1"
 
 [[projects]]
   branch = "master"
@@ -80,14 +81,14 @@
   revision = "36c7af3342056179a831c19ec142f2763b310f7b"
 
 [[projects]]
-  branch = "v2"
   name = "gopkg.in/yaml.v2"
   packages = ["."]
-  revision = "287cf08546ab5e7e37d55a84f7ed3fd1db036de5"
+  revision = "86f5ed62f8a0ee96bd888d2efdfd6d4fb100a4eb"
+  version = "v2.2.0"
 
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "bc176e842f89a9a6aebbe3d3e07b67b86fcc64908f455e06b9bcdc8d43c32867"
+  inputs-digest = "c6ceb16c70fe017b4eb37f5a9863d0235b18d9c6765888a6bd712a4babf0a90a"
   solver-name = "gps-cdcl"
   solver-version = 1

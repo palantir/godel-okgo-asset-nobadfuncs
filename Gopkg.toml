@@ -35,12 +35,8 @@ required = ["github.com/palantir/go-nobadfuncs"]
   version = "1.0.0"
 
 [[constraint]]
-  branch = "master"
   name = "github.com/palantir/godel"
-
-[[constraint]]
-  branch = "master"
-  name = "github.com/palantir/pkg"
+  version = "2.12.0"
 
 [[constraint]]
   name = "github.com/pkg/errors"
