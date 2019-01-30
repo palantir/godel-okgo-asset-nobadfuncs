@@ -21,7 +21,7 @@ import (
 	"github.com/palantir/okgo/checker"
 	"github.com/palantir/pkg/cobracli"
 
-	"github.com/palantir/godel-okgo-asset-nobadfuncs/generated_src"
+	amalgomatedcheck "github.com/palantir/godel-okgo-asset-nobadfuncs/generated_src"
 	"github.com/palantir/godel-okgo-asset-nobadfuncs/nobadfuncs/config"
 	"github.com/palantir/godel-okgo-asset-nobadfuncs/nobadfuncs/creator"
 )

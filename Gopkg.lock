@@ -75,8 +75,8 @@
 [[projects]]
   name = "github.com/palantir/amalgomate"
   packages = ["amalgomated"]
-  revision = "926513e8d502edf93e1a55662d787fd8bafe4d7f"
-  version = "1.3.0"
+  revision = "30f244ddb09b34a21ae32167d68fdd41652a22d4"
+  version = "1.4.0"
 
 [[projects]]
   name = "github.com/palantir/go-nobadfuncs"
@@ -89,7 +89,6 @@
   version = "v1.0.0"
 
 [[projects]]
-  branch = "master"
   name = "github.com/palantir/godel"
   packages = [
     "framework/artifactresolver",
@@ -118,7 +117,8 @@
     "pkg/products/v2/products",
     "pkg/versionedconfig",
   ]
-  revision = "6ef6fc2811e260af0641aae25a45881217b3cf3d"
+  revision = "dfd68b0f0a0e0946acb41133903374ae8e12bce6"
+  version = "v2.12.0"
 
 [[projects]]
   name = "github.com/palantir/okgo"
@@ -127,11 +127,10 @@
     "okgo",
     "okgotester",
   ]
-  revision = "32725b197ce491268c43f7036aa702bb99dac21c"
-  version = "v1.0.0"
+  revision = "1d1202b873a020fb35f7089268b80c29a42cdcdf"
+  version = "v1.5.0"
 
 [[projects]]
-  branch = "master"
   name = "github.com/palantir/pkg"
   packages = [
     "cobracli",
@@ -139,7 +138,8 @@
     "pkgpath",
     "specdir",
   ]
-  revision = "23395ebeee5df1083443a6261e5f674a76af91b6"
+  revision = "b5019bc363f07d9e6bc073eceb006fdbeda25132"
+  version = "0.9.5"
 
 [[projects]]
   name = "github.com/pkg/errors"
@@ -222,6 +222,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "b73060d8eb33489d73304b4ff10af8fa13eb6bb688fc1e53fb9d316148cb81b6"
+  inputs-digest = "8c2ceaa0e44f391e319cb7f3139c538b9bb3fcec74ea9e1f5373a1abb7018cd0"
   solver-name = "gps-cdcl"
   solver-version = 1

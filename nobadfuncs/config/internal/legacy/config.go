@@ -19,9 +19,9 @@ import (
 
 	"github.com/palantir/godel/pkg/versionedconfig"
 	"github.com/pkg/errors"
-	"gopkg.in/yaml.v2"
+	yaml "gopkg.in/yaml.v2"
 
-	"github.com/palantir/godel-okgo-asset-nobadfuncs/nobadfuncs/config/internal/v0"
+	v0 "github.com/palantir/godel-okgo-asset-nobadfuncs/nobadfuncs/config/internal/v0"
 )
 
 type Config struct {
