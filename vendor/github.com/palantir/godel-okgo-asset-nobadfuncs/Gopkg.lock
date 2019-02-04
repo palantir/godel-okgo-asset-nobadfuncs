@@ -121,22 +121,6 @@
   version = "v2.12.0"
 
 [[projects]]
-  name = "github.com/palantir/godel-okgo-asset-nobadfuncs"
-  packages = [
-    "generated_src",
-    "generated_src/internal/github.com/palantir/go-nobadfuncs",
-    "generated_src/internal/github.com/palantir/go-nobadfuncs/cmd",
-    "generated_src/internal/github.com/palantir/go-nobadfuncs/nobadfuncs",
-    "nobadfuncs",
-    "nobadfuncs/config",
-    "nobadfuncs/config/internal/legacy",
-    "nobadfuncs/config/internal/v0",
-    "nobadfuncs/creator",
-  ]
-  revision = "b615e0238fb0659e4a39b9868cac8e3268932ef7"
-  version = "v1.1.0"
-
-[[projects]]
   name = "github.com/palantir/okgo"
   packages = [
     "checker",
@@ -154,8 +138,8 @@
     "pkgpath",
     "specdir",
   ]
-  revision = "ddb09eb2e4cb0816182bf714704e2c2f0d49fd45"
-  version = "0.9.6"
+  revision = "b5019bc363f07d9e6bc073eceb006fdbeda25132"
+  version = "0.9.5"
 
 [[projects]]
   name = "github.com/pkg/errors"
@@ -238,6 +222,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "b7aeec59bae1bcd97ee25f4d98b329835c5a51ecc5f9b3f93702f62bb2fc47da"
+  inputs-digest = "8c2ceaa0e44f391e319cb7f3139c538b9bb3fcec74ea9e1f5373a1abb7018cd0"
   solver-name = "gps-cdcl"
   solver-version = 1
