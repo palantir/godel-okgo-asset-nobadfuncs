@@ -2,13 +2,16 @@
 
 
 [[projects]]
+  digest = "1:56c130d885a4aacae1dd9c7b71cfe39912c7ebc1ff7d2b46083c8812996dc43b"
   name = "github.com/davecgh/go-spew"
   packages = ["spew"]
+  pruneopts = ""
   revision = "346938d642f2ec3594ed81d874461961cd0faa76"
   version = "v1.1.0"
 
 [[projects]]
   branch = "master"
+  digest = "1:5c1ef2b35731f69dbb50233d7f028c549a417bdf2127d2d420eedf50ff9a24e2"
   name = "github.com/dsnet/compress"
   packages = [
     ".",
@@ -18,77 +21,99 @@
     "internal/errors",
     "internal/prefix",
   ]
+  pruneopts = ""
   revision = "cc9eb1d7ad760af14e8f918698f745e80377af4f"
 
 [[projects]]
+  digest = "1:0022cff7d0dd79dbfa78ce16fea20fb29d6fdfcfae67ee55cada2e422cedf8ee"
   name = "github.com/google/go-github"
   packages = ["github"]
+  pruneopts = ""
   revision = "e48060a28fac52d0f1cb758bc8b87c07bac4a87d"
   version = "v15.0.0"
 
 [[projects]]
   branch = "master"
+  digest = "1:9abc49f39e3e23e262594bb4fb70abf74c0c99e94f99153f43b143805e850719"
   name = "github.com/google/go-querystring"
   packages = ["query"]
+  pruneopts = ""
   revision = "53e6ce116135b80d037921a7fdd5138cf32d7a8a"
 
 [[projects]]
+  digest = "1:870d441fe217b8e689d7949fef6e43efbc787e50f200cb1e70dbca9204a1d6be"
   name = "github.com/inconshreveable/mousetrap"
   packages = ["."]
+  pruneopts = ""
   revision = "76626ae9c91c4f2a10f34cad8ce83ea42c93bb75"
   version = "v1.0"
 
 [[projects]]
   branch = "master"
+  digest = "1:2c5ad58492804c40bdaf5d92039b0cde8b5becd2b7feeb37d7d1cc36a8aa8dbe"
   name = "github.com/kardianos/osext"
   packages = ["."]
+  pruneopts = ""
   revision = "ae77be60afb1dcacde03767a8c37337fad28ac14"
 
 [[projects]]
+  digest = "1:81e673df85e765593a863f67cba4544cf40e8919590f04d67664940786c2b61a"
   name = "github.com/mattn/go-runewidth"
   packages = ["."]
+  pruneopts = ""
   revision = "9e777a8366cce605130a531d2cd6363d07ad7317"
   version = "v0.0.2"
 
 [[projects]]
+  digest = "1:e6cee0e684c4abef5358249d6f6673a154bea173ac4c3ad8014d1f891212a928"
   name = "github.com/mholt/archiver"
   packages = ["."]
+  pruneopts = ""
   revision = "cdc68dd1f170b8dfc1a0d2231b5bb0967ed67006"
   version = "v2.0"
 
 [[projects]]
   branch = "develop"
+  digest = "1:8ea830dbe6d492ce7ddd5586d1d3198cb94f3789cc211dfc0273b2d40c3fd023"
   name = "github.com/nmiyake/pkg"
   packages = [
     "dirs",
     "errorstringer",
     "gofiles",
   ]
+  pruneopts = ""
   revision = "b64318170fdef93b4462420e0badef8050dbb7ec"
 
 [[projects]]
   branch = "master"
+  digest = "1:3bdb4203c03569a564d6a4bd54d84315575cebb2d76471f8676f8ee8c402005e"
   name = "github.com/nwaples/rardecode"
   packages = ["."]
+  pruneopts = ""
   revision = "e06696f847aeda6f39a8f0b7cdff193b7690aef6"
 
 [[projects]]
+  digest = "1:e27f916e79861b54cd2666d04f0af4410d5fe01fef010af5c6edff601beaccae"
   name = "github.com/palantir/amalgomate"
   packages = ["amalgomated"]
+  pruneopts = ""
   revision = "30f244ddb09b34a21ae32167d68fdd41652a22d4"
   version = "1.4.0"
 
 [[projects]]
+  digest = "1:66c6f24d772ea9eb6c92563de8f7801d2d2b3fde6cd4630cfcaf06f398b08622"
   name = "github.com/palantir/go-nobadfuncs"
   packages = [
     ".",
     "cmd",
     "nobadfuncs",
   ]
+  pruneopts = ""
   revision = "b4d7a2c74dac9a3ff87635ef4b1a569853febd16"
   version = "v1.0.0"
 
 [[projects]]
+  digest = "1:4a197677b63c71fe231dd9f8bcf6f5be274d934a13b5cc3927320e25b00937bd"
   name = "github.com/palantir/godel"
   packages = [
     "framework/artifactresolver",
@@ -117,20 +142,24 @@
     "pkg/products/v2/products",
     "pkg/versionedconfig",
   ]
-  revision = "dfd68b0f0a0e0946acb41133903374ae8e12bce6"
-  version = "v2.12.0"
+  pruneopts = ""
+  revision = "3410152fb9e7ba34206a144c5c26a7829d52b488"
+  version = "v2.16.0"
 
 [[projects]]
+  digest = "1:0d0b1b3a3cbc642fe3b4bbb257a6d7fb2eb13900e7c7f8d756461c85172e71f1"
   name = "github.com/palantir/okgo"
   packages = [
     "checker",
     "okgo",
     "okgotester",
   ]
+  pruneopts = ""
   revision = "1d1202b873a020fb35f7089268b80c29a42cdcdf"
   version = "v1.5.0"
 
 [[projects]]
+  digest = "1:9fe66094576439201c8ff97b3a36eb65dfbd3723d06eaf426b781c725d3cf0c8"
   name = "github.com/palantir/pkg"
   packages = [
     "cobracli",
@@ -138,49 +167,63 @@
     "pkgpath",
     "specdir",
   ]
+  pruneopts = ""
   revision = "b5019bc363f07d9e6bc073eceb006fdbeda25132"
   version = "0.9.5"
 
 [[projects]]
+  digest = "1:7365acd48986e205ccb8652cc746f09c8b7876030d53710ea6ef7d0bd0dcd7ca"
   name = "github.com/pkg/errors"
   packages = ["."]
+  pruneopts = ""
   revision = "645ef00459ed84a119197bfb8d8205042c6df63d"
   version = "v0.8.0"
 
 [[projects]]
+  digest = "1:256484dbbcd271f9ecebc6795b2df8cad4c458dd0f5fd82a8c2fa0c29f233411"
   name = "github.com/pmezard/go-difflib"
   packages = ["difflib"]
+  pruneopts = ""
   revision = "792786c7400a136282c1664665ae0a8db921c6c2"
   version = "v1.0.0"
 
 [[projects]]
+  digest = "1:74c32990510c9f188556aa17600313e867d1d06f5a9db244056a95d144ec34ce"
   name = "github.com/spf13/cobra"
   packages = ["."]
+  pruneopts = ""
   revision = "a1f051bc3eba734da4772d60e2d677f47cf93ef4"
   version = "v0.0.2"
 
 [[projects]]
+  digest = "1:261bc565833ef4f02121450d74eb88d5ae4bd74bfe5d0e862cddb8550ec35000"
   name = "github.com/spf13/pflag"
   packages = ["."]
+  pruneopts = ""
   revision = "e57e3eeb33f795204c1ca35f56c44f83227c6e66"
   version = "v1.0.0"
 
 [[projects]]
+  digest = "1:a30066593578732a356dc7e5d7f78d69184ca65aeeff5939241a3ab10559bb06"
   name = "github.com/stretchr/testify"
   packages = [
     "assert",
     "require",
   ]
+  pruneopts = ""
   revision = "12b6f73e6084dad08a7c6e575284b177ecafbc71"
   version = "v1.2.1"
 
 [[projects]]
   branch = "master"
+  digest = "1:fb4a9981659b8b311007651bf3bd673b578bef7e0a9bab39f31b132abe76e1b8"
   name = "github.com/termie/go-shutil"
   packages = ["."]
+  pruneopts = ""
   revision = "bcacb06fecaeec8dc42af03c87c6949f4a05c74c"
 
 [[projects]]
+  digest = "1:ee723e6a1962a196eeba1b24f82af61a4f60f8821d7aa96d48e787f8337bcffc"
   name = "github.com/ulikunitz/xz"
   packages = [
     ".",
@@ -188,40 +231,65 @@
     "internal/xlog",
     "lzma",
   ]
+  pruneopts = ""
   revision = "0c6b41e72360850ca4f98dc341fd999726ea007f"
   version = "v0.5.4"
 
 [[projects]]
   branch = "master"
+  digest = "1:0a0c73aced706c77f4f128971976b0ee94db7bdcc95b6088bda9e72594598634"
   name = "golang.org/x/sys"
   packages = ["unix"]
+  pruneopts = ""
   revision = "dd2ff4accc098aceecb86b36eaa7829b2a17b1c9"
 
 [[projects]]
   branch = "master"
+  digest = "1:bb496c9db43c4770bb4bf67960b35961324c8219176337aa6e067f9709a965c5"
   name = "golang.org/x/tools"
   packages = [
     "go/ast/astutil",
     "go/buildutil",
     "go/loader",
   ]
+  pruneopts = ""
   revision = "059bec968c61383b574810040ba9410712de36c5"
 
 [[projects]]
+  digest = "1:5ca6e1c12640a5b9eb681c7260bcbe9cdee6db59cf063f7d300c0f68cb42d603"
   name = "gopkg.in/cheggaaa/pb.v1"
   packages = ["."]
+  pruneopts = ""
   revision = "72b964305fba1230d3d818711138195f22b9ceea"
   version = "v1.0.22"
 
 [[projects]]
+  digest = "1:5fe876313b07628905b2181e537faabe45032cb9c79c01b49b51c25a0a40040d"
   name = "gopkg.in/yaml.v2"
   packages = ["."]
+  pruneopts = ""
   revision = "7f97868eec74b32b0982dd158a51a446d1da7eb5"
   version = "v2.1.1"
 
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "8c2ceaa0e44f391e319cb7f3139c538b9bb3fcec74ea9e1f5373a1abb7018cd0"
+  input-imports = [
+    "github.com/nmiyake/pkg/gofiles",
+    "github.com/palantir/amalgomate/amalgomated",
+    "github.com/palantir/go-nobadfuncs",
+    "github.com/palantir/godel/framework/pluginapitester",
+    "github.com/palantir/godel/pkg/products/v2/products",
+    "github.com/palantir/godel/pkg/versionedconfig",
+    "github.com/palantir/okgo/checker",
+    "github.com/palantir/okgo/okgo",
+    "github.com/palantir/okgo/okgotester",
+    "github.com/palantir/pkg/cobracli",
+    "github.com/pkg/errors",
+    "github.com/spf13/cobra",
+    "github.com/stretchr/testify/require",
+    "golang.org/x/tools/go/loader",
+    "gopkg.in/yaml.v2",
+  ]
   solver-name = "gps-cdcl"
   solver-version = 1
