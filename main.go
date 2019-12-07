@@ -18,12 +18,11 @@ import (
 	"os"
 
 	"github.com/palantir/amalgomate/amalgomated"
-	"github.com/palantir/okgo/checker"
-	"github.com/palantir/pkg/cobracli"
-
 	amalgomatedcheck "github.com/palantir/godel-okgo-asset-nobadfuncs/generated_src"
 	"github.com/palantir/godel-okgo-asset-nobadfuncs/nobadfuncs/config"
 	"github.com/palantir/godel-okgo-asset-nobadfuncs/nobadfuncs/creator"
+	"github.com/palantir/okgo/checker"
+	"github.com/palantir/pkg/cobracli"
 )
 
 func main() {

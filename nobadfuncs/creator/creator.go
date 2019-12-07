@@ -15,12 +15,11 @@
 package creator
 
 import (
+	"github.com/palantir/godel-okgo-asset-nobadfuncs/nobadfuncs"
+	"github.com/palantir/godel-okgo-asset-nobadfuncs/nobadfuncs/config"
 	"github.com/palantir/okgo/checker"
 	"github.com/palantir/okgo/okgo"
 	yaml "gopkg.in/yaml.v2"
-
-	"github.com/palantir/godel-okgo-asset-nobadfuncs/nobadfuncs"
-	"github.com/palantir/godel-okgo-asset-nobadfuncs/nobadfuncs/config"
 )
 
 func Nobadfuncs() checker.Creator {
