@@ -1,5 +1,11 @@
-type: improvement
-improvement:
-  description: Updates project to use Go modules
-  links:
-  - https://github.com/palantir/godel-okgo-asset-nobadfuncs/pull/56
+changes:
+  - type: improvement
+    improvement:
+      description: Updates project to use Go modules
+      links:
+      - https://github.com/palantir/godel-okgo-asset-nobadfuncs/pull/56
+  - type: improvement
+    improvement:
+      description: Adds support for module projects by using v1.1.0 of go-nobadfuncs
+      links:
+        - https://github.com/palantir/godel-okgo-asset-nobadfuncs/pull/56
