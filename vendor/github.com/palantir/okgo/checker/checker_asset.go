@@ -21,7 +21,7 @@ import (
 	"os/exec"
 	"strings"
 
-	"github.com/palantir/godel/framework/pluginapi"
+	"github.com/palantir/godel/v2/framework/pluginapi"
 	"github.com/pkg/errors"
 
 	"github.com/palantir/okgo/okgo"
@@ -101,7 +101,7 @@ func (c *assetChecker) RunCheckCmd(args []string, stdout io.Writer) {
 	if err := runCheckCmdCmd.Run(); err != nil {
 		// if running check failed, write failure
 		if _, ok := err.(*exec.ExitError); !ok {
-			fmt.Fprintf(stdout, "command %v failed with error %v\n", runCheckCmdCmd.Args, err)
+			_, _ = fmt.Fprintf(stdout, "command %v failed with error %v\n", runCheckCmdCmd.Args, err)
 		}
 	}
 }

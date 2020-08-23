@@ -17,7 +17,7 @@ package config
 import (
 	"github.com/palantir/godel-okgo-asset-nobadfuncs/nobadfuncs/config/internal/legacy"
 	v0 "github.com/palantir/godel-okgo-asset-nobadfuncs/nobadfuncs/config/internal/v0"
-	"github.com/palantir/godel/pkg/versionedconfig"
+	"github.com/palantir/godel/v2/pkg/versionedconfig"
 	"github.com/pkg/errors"
 )
 
