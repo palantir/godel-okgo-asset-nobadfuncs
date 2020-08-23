@@ -1,4 +1,3 @@
 packages:
   nobadfuncs:
     main: github.com/palantir/go-nobadfuncs
-    omit-vendor-dirs: true
