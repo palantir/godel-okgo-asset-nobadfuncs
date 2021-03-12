@@ -19,7 +19,7 @@ import (
 	"io"
 	"os"
 
-	"github.com/palantir/godel-okgo-asset-nobadfuncs/generated_src/internal/github.com/palantir/go-nobadfuncs/nobadfuncs"
+	"./nobadfuncs"
 	"github.com/palantir/pkg/cobracli"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
