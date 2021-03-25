@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"sort"
 
-	nobadfuncs "github.com/palantir/godel-okgo-asset-nobadfuncs/generated_src/internal/github.com/palantir/go-nobadfuncs"
+	nobadfuncs "."
 )
 
 var programs = map[string]func(){"nobadfuncs": func() {
