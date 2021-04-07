@@ -8,5 +8,4 @@ godel-okgo-asset-nobadfuncs is an asset for the gödel [okgo plugin](https://git
 
 This check verifies that a set of blacklisted functions are not referenced.
 
-
 You can delegate out to the underlying check config flags with: `./godelw run-check nobadfuncs -- --print-all $file_name`
