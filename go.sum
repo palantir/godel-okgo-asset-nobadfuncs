@@ -294,8 +294,8 @@ github.com/palantir/go-nobadfuncs v1.2.0/go.mod h1:JBGn/CsZCYcXBUHKuoBUy8EPrtOmq
 github.com/palantir/godel/pkg/products/v2 v2.0.0 h1:E3DuAEA1yotLLDQt7vIrYRapRwXRyW6u8Yuq2p/qyLs=
 github.com/palantir/godel/pkg/products/v2 v2.0.0/go.mod h1:SaLUycZLVP5qV6mL9MWG3jkX4dS23lJnzpubTGAV4FU=
 github.com/palantir/godel/v2 v2.22.0/go.mod h1:Da/HS4lwo4j/v/PpmpJxgfamjg4Jwp6qPSnPzAr0Ppk=
-github.com/palantir/godel/v2 v2.40.0 h1:Io5nOBEp+xoLn4HXwq124qxfixG4M4ogTNPRWnL+64w=
-github.com/palantir/godel/v2 v2.40.0/go.mod h1:7p/LqD92co/iHeq1ZsPFICno1iacwqh3XBgl9+rztUc=
+github.com/palantir/godel/v2 v2.41.0 h1:QPVQ9pNs/ul3adIMHdZSPqwPr9ZypL8TaRkmE/tAYCA=
+github.com/palantir/godel/v2 v2.41.0/go.mod h1:e3VuqRVVz0b2RFNRo6mLGNZChxYgbVeO9pxEmvWd4DI=
 github.com/palantir/okgo v1.9.0 h1:Oieu/McPt0Ptj37HhSLkqj/8cgcw50G8DZ08d1WZ5VU=
 github.com/palantir/okgo v1.9.0/go.mod h1:gyJxjsQfelLgV2PdxZ5mNcgToRRzEDs11vi+8UzgXvk=
 github.com/palantir/pkg v0.0.0-20181230161202-d12f4064ff8e/go.mod h1:jLbXCfQ4HRrT5RRj5JuKc1ucQeridBMyRCpmzRtUYMY=
@@ -359,7 +359,6 @@ github.com/spf13/cast v1.3.1/go.mod h1:Qx5cxh0v+4UWYiBimWS+eyWzqEqokIECu5etghLkU
 github.com/spf13/cobra v0.0.2/go.mod h1:1l0Ry5zgKvJasoi3XT1TypsSe7PqH0Sj9dhYf7v3XqQ=
 github.com/spf13/cobra v0.0.5/go.mod h1:3K3wKZymM7VvHMDS9+Akkh4K60UwM26emMESw8tLCHU=
 github.com/spf13/cobra v1.1.1/go.mod h1:WnodtKOvamDL/PwE2M4iKs8aMDBZ5Q5klgD3qfVJQMI=
-github.com/spf13/cobra v1.1.3/go.mod h1:pGADOWyqRD/YMrPZigI/zbliZ2wVD/23d+is3pSWzOo=
 github.com/spf13/cobra v1.2.1 h1:+KmjbUw1hriSNMF55oPrkZcb27aECyrj8V2ytv7kWDw=
 github.com/spf13/cobra v1.2.1/go.mod h1:ExllRjgxM/piMAM+3tAZvg8fsklGAf3tPfi+i8t68Nk=
 github.com/spf13/jwalterweatherman v1.0.0/go.mod h1:cQK4TGJAtQXfYWX+Ddv3mKDzgVb68N+wFjFa4jdeBTo=
