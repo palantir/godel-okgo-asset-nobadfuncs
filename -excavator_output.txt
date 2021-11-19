@@ -1,0 +1,26 @@
+./godelw verify failed after updating godel plugins and assets
+
+Command that caused error:
+./godelw verify --skip-test --skip-check
+
+Output:
+Running format...
+Running mod...
+Running amalgomate...
+Error: amalgomate failed for nobadfuncs: failed to repackage files specified in configuration: failed to copy module: failed to walk directory /local/repositories/palantir-godel-okgo-asset-nobadfuncs-123863160/vendor/github.com/palantir/go-nobadfuncs: failed to determine package for directory: failed to determine package for directory /local/repositories/palantir-godel-okgo-asset-nobadfuncs-123863160/vendor/github.com/palantir/go-nobadfuncs: err: exit status 1: stderr: go: inconsistent vendoring in /local/repositories/palantir-godel-okgo-asset-nobadfuncs-123863160/vendor/github.com/palantir/go-nobadfuncs:
+	github.com/nmiyake/pkg/dirs@v1.0.2: is explicitly required in go.mod, but not marked as explicit in vendor/modules.txt
+	github.com/nmiyake/pkg/gofiles@v1.0.2: is explicitly required in go.mod, but not marked as explicit in vendor/modules.txt
+	github.com/palantir/godel/pkg/products/v2@v2.0.0: is explicitly required in go.mod, but not marked as explicit in vendor/modules.txt
+	github.com/palantir/pkg/cobracli@v1.0.1: is explicitly required in go.mod, but not marked as explicit in vendor/modules.txt
+	github.com/pkg/errors@v0.8.1: is explicitly required in go.mod, but not marked as explicit in vendor/modules.txt
+	github.com/spf13/cobra@v1.1.1: is explicitly required in go.mod, but not marked as explicit in vendor/modules.txt
+	github.com/stretchr/testify@v1.4.0: is explicitly required in go.mod, but not marked as explicit in vendor/modules.txt
+	golang.org/x/tools@v0.1.0: is explicitly required in go.mod, but not marked as explicit in vendor/modules.txt
+
+	To ignore the vendor directory, use -mod=readonly or -mod=mod.
+	To sync the vendor directory, run:
+		go mod vendor
+
+Running license...
+Failed tasks:
+	amalgomate
