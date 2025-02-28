@@ -17,6 +17,7 @@ package nobadfuncs
 import (
 	"fmt"
 	"go/types"
+	"slices"
 	"strings"
 )
 
@@ -24,10 +25,12 @@ import (
 // package references have their vendor references removed.
 //
 // Without this, the "String()" function for a function returns output of the form:
-//  func (github.com/palantir/checks/vendor/github.com/Foo).Foo(paramVarName github.com/palantir/checks/vendor/github.com/foo.FooType) (namedReturnVar github.com/palantir/checks/vendor/github.com/foo.FooType)
+//
+//	func (github.com/palantir/checks/vendor/github.com/Foo).Foo(paramVarName github.com/palantir/checks/vendor/github.com/foo.FooType) (namedReturnVar github.com/palantir/checks/vendor/github.com/foo.FooType)
 //
 // The "String()" function for the function returned by this function for the above would be:
-//  func (github.com/Foo).Foo(github.com/foo.FooType) github.com/foo.FooType
+//
+//	func (github.com/Foo).Foo(github.com/foo.FooType) github.com/foo.FooType
 func toFuncWithNoIdentifiersRemoveVendor(in *types.Func) *types.Func {
 	sig, ok := in.Type().(*types.Signature)
 	if !ok {
@@ -75,6 +78,10 @@ func toTypeRemoveVendor(in types.Type) types.Type {
 	switch typ := in.(type) {
 	default:
 		panic(fmt.Errorf("unrecognized type: %v", in))
+	case *types.Alias:
+		return in
+	case *types.TypeParam:
+		return in
 	case *types.Basic:
 		return in
 	case *types.Array:
@@ -88,7 +95,13 @@ func toTypeRemoveVendor(in types.Type) types.Type {
 	case *types.Tuple:
 		return newTupleRemoveVendor(typ)
 	case *types.Signature:
-		return types.NewSignature(newVarRemoveVendor(typ.Recv()), newTupleRemoveVendor(typ.Params()), newTupleRemoveVendor(typ.Results()), typ.Variadic())
+		getTypeParams := func(in *types.TypeParamList) []*types.TypeParam {
+			if in == nil {
+				return nil
+			}
+			return slices.Collect(in.TypeParams())
+		}
+		return types.NewSignatureType(newVarRemoveVendor(typ.Recv()), getTypeParams(typ.RecvTypeParams()), getTypeParams(typ.TypeParams()), newTupleRemoveVendor(typ.Params()), newTupleRemoveVendor(typ.Results()), typ.Variadic())
 	case *types.Interface:
 		return in
 	case *types.Map:
