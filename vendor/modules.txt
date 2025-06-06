@@ -66,10 +66,10 @@ github.com/nmiyake/pkg/gofiles
 # github.com/nwaples/rardecode v1.1.0
 ## explicit
 github.com/nwaples/rardecode
-# github.com/palantir/amalgomate v1.6.0
-## explicit; go 1.13
+# github.com/palantir/amalgomate v1.49.0
+## explicit; go 1.24.0
 github.com/palantir/amalgomate/amalgomated
-# github.com/palantir/go-nobadfuncs v1.29.0
+# github.com/palantir/go-nobadfuncs v1.31.0
 ## explicit; go 1.24.0
 github.com/palantir/go-nobadfuncs
 github.com/palantir/go-nobadfuncs/cmd
@@ -77,8 +77,8 @@ github.com/palantir/go-nobadfuncs/nobadfuncs
 # github.com/palantir/godel/pkg/products/v2 v2.0.0
 ## explicit; go 1.13
 github.com/palantir/godel/pkg/products/v2
-# github.com/palantir/godel/v2 v2.118.0
-## explicit; go 1.21.0
+# github.com/palantir/godel/v2 v2.131.0
+## explicit; go 1.24.0
 github.com/palantir/godel/v2/framework/artifactresolver
 github.com/palantir/godel/v2/framework/builtintasks
 github.com/palantir/godel/v2/framework/builtintasks/githooks
@@ -102,8 +102,8 @@ github.com/palantir/godel/v2/framework/verifyorder
 github.com/palantir/godel/v2/godelgetter
 github.com/palantir/godel/v2/pkg/osarch
 github.com/palantir/godel/v2/pkg/versionedconfig
-# github.com/palantir/okgo v1.9.0
-## explicit; go 1.13
+# github.com/palantir/okgo v1.63.0
+## explicit; go 1.24.0
 github.com/palantir/okgo/checker
 github.com/palantir/okgo/okgo
 github.com/palantir/okgo/okgotester
@@ -129,7 +129,7 @@ github.com/pierrec/lz4/v4/internal/lz4block
 github.com/pierrec/lz4/v4/internal/lz4errors
 github.com/pierrec/lz4/v4/internal/lz4stream
 github.com/pierrec/lz4/v4/internal/xxh32
-# github.com/pkg/errors v0.8.1
+# github.com/pkg/errors v0.9.1
 ## explicit
 github.com/pkg/errors
 # github.com/pmezard/go-difflib v1.0.0
@@ -161,20 +161,20 @@ github.com/ulikunitz/xz/lzma
 # github.com/xi2/xz v0.0.0-20171230120015-48954b6210f8
 ## explicit
 github.com/xi2/xz
-# golang.org/x/mod v0.23.0
-## explicit; go 1.22.0
+# golang.org/x/mod v0.25.0
+## explicit; go 1.23.0
 golang.org/x/mod/internal/lazyregexp
 golang.org/x/mod/modfile
 golang.org/x/mod/module
 golang.org/x/mod/semver
-# golang.org/x/sync v0.11.0
-## explicit; go 1.18
+# golang.org/x/sync v0.15.0
+## explicit; go 1.23.0
 golang.org/x/sync/errgroup
-# golang.org/x/sys v0.30.0
-## explicit; go 1.18
+# golang.org/x/sys v0.33.0
+## explicit; go 1.23.0
 golang.org/x/sys/unix
-# golang.org/x/tools v0.30.0
-## explicit; go 1.22.0
+# golang.org/x/tools v0.34.0
+## explicit; go 1.23.0
 golang.org/x/tools/go/gcexportdata
 golang.org/x/tools/go/packages
 golang.org/x/tools/go/types/objectpath
