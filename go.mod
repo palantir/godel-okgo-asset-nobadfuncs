@@ -5,7 +5,7 @@ go 1.24.0
 require (
 	github.com/nmiyake/pkg/gofiles v1.2.0
 	github.com/palantir/amalgomate v1.6.0
-	github.com/palantir/go-nobadfuncs v1.29.0
+	github.com/palantir/go-nobadfuncs v1.31.0
 	github.com/palantir/godel/pkg/products/v2 v2.0.0
 	github.com/palantir/godel/v2 v2.134.0
 	github.com/palantir/okgo v1.9.0
