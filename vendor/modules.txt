@@ -66,8 +66,8 @@ github.com/nmiyake/pkg/gofiles
 # github.com/nwaples/rardecode v1.1.0
 ## explicit
 github.com/nwaples/rardecode
-# github.com/palantir/amalgomate v1.6.0
-## explicit; go 1.13
+# github.com/palantir/amalgomate v1.51.0
+## explicit; go 1.24.0
 github.com/palantir/amalgomate/amalgomated
 # github.com/palantir/go-nobadfuncs v1.31.0
 ## explicit; go 1.24.0
@@ -129,7 +129,7 @@ github.com/pierrec/lz4/v4/internal/lz4block
 github.com/pierrec/lz4/v4/internal/lz4errors
 github.com/pierrec/lz4/v4/internal/lz4stream
 github.com/pierrec/lz4/v4/internal/xxh32
-# github.com/pkg/errors v0.8.1
+# github.com/pkg/errors v0.9.1
 ## explicit
 github.com/pkg/errors
 # github.com/pmezard/go-difflib v1.0.0
