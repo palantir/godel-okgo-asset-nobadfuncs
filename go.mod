@@ -7,7 +7,7 @@ require (
 	github.com/palantir/amalgomate v1.51.0
 	github.com/palantir/go-nobadfuncs v1.31.0
 	github.com/palantir/godel/pkg/products/v2 v2.0.0
-	github.com/palantir/godel/v2 v2.135.0
+	github.com/palantir/godel/v2 v2.136.0
 	github.com/palantir/okgo v1.9.0
 	github.com/palantir/pkg/cobracli v1.2.0
 	github.com/pkg/errors v0.9.1
