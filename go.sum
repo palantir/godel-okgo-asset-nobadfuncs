@@ -83,8 +83,8 @@ github.com/palantir/amalgomate v1.6.0/go.mod h1:OzfDX5E7xZrRlfoeyKxLSyQUlTdJQLlG
 github.com/palantir/amalgomate v1.56.0 h1:wgdb/kkkXN7pa5OIQguMJQOGLc3oCuX9w/ORetOZTkY=
 github.com/palantir/amalgomate v1.56.0/go.mod h1:5LixZUuEIu6Tx6lUO2N8S+JK0QuS746VlDRhQ6VDTgs=
 github.com/palantir/distgo v1.2.0/go.mod h1:jOCcoLD92T/eN4VfRxczaDIWsqyy1f0yQZMFOt3cJCw=
-github.com/palantir/go-nobadfuncs v1.34.0 h1:iao4X5bJZ/Xf3eu5I5KqFgvqJ1mXsnW81f9vF48GHNM=
-github.com/palantir/go-nobadfuncs v1.34.0/go.mod h1:fKuwsyCj+Lkqo6UNoA/bzuKdRg9R/M3W3BDuifi7u44=
+github.com/palantir/go-nobadfuncs v1.35.0 h1:RGdGEqEfkTgWmYPrez4+NC+eORFewYR18VYb8KXj+9o=
+github.com/palantir/go-nobadfuncs v1.35.0/go.mod h1:8GR1zjb+ZkTnHYdd9Y9Xc5VuiOLLcb0yICEarq3N2xw=
 github.com/palantir/godel/pkg/products/v2 v2.0.0 h1:E3DuAEA1yotLLDQt7vIrYRapRwXRyW6u8Yuq2p/qyLs=
 github.com/palantir/godel/pkg/products/v2 v2.0.0/go.mod h1:SaLUycZLVP5qV6mL9MWG3jkX4dS23lJnzpubTGAV4FU=
 github.com/palantir/godel/v2 v2.22.0/go.mod h1:Da/HS4lwo4j/v/PpmpJxgfamjg4Jwp6qPSnPzAr0Ppk=
