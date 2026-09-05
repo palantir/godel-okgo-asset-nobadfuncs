@@ -74,8 +74,8 @@ github.com/nwaples/rardecode v1.1.0/go.mod h1:5DzqNKiOdpKKBH87u8VlvAnPZMXcGRhxWk
 github.com/nwaples/rardecode v1.1.3 h1:cWCaZwfM5H7nAD6PyEdcVnczzV8i/JtotnyW/dD9lEc=
 github.com/nwaples/rardecode v1.1.3/go.mod h1:5DzqNKiOdpKKBH87u8VlvAnPZMXcGRhxWkRpHbbfGS0=
 github.com/palantir/amalgomate v1.6.0/go.mod h1:OzfDX5E7xZrRlfoeyKxLSyQUlTdJQLlGshonXbxjoXE=
-github.com/palantir/amalgomate v1.59.0 h1:WJ42NPUPoIjpNdqffKLSZYIp+eMEEGQ5O5O4dyFyJ+E=
-github.com/palantir/amalgomate v1.59.0/go.mod h1:FbfOFTz6A0pRX7ZqBKByPStkvbuZfq2TIQunCPATJCI=
+github.com/palantir/amalgomate v1.60.0 h1:fPnGAineJVBVGc4fb189DKG4F7TMrxtCtxVz5ijAERA=
+github.com/palantir/amalgomate v1.60.0/go.mod h1:zbtFfsUm5AChTTtysCBAYHqVwkiHM5MSw5QTGQvRjGU=
 github.com/palantir/distgo v1.2.0/go.mod h1:jOCcoLD92T/eN4VfRxczaDIWsqyy1f0yQZMFOt3cJCw=
 github.com/palantir/go-nobadfuncs v1.38.0 h1:uzV6GS7Q4izEatABdxmWRCJlFbLT3/O4jKYagzpa0uI=
 github.com/palantir/go-nobadfuncs v1.38.0/go.mod h1:FMQPIq23YD7J2twxxXsmb6UVvCWmgYTkunlUhtaeJnw=
