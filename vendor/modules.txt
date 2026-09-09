@@ -74,8 +74,8 @@ github.com/nwaples/rardecode
 # github.com/palantir/amalgomate v1.60.0
 ## explicit; go 1.26.0
 github.com/palantir/amalgomate/amalgomated
-# github.com/palantir/go-nobadfuncs v1.38.0
-## explicit; go 1.26.0
+# github.com/palantir/go-nobadfuncs v1.39.0
+## explicit; go 1.27.0
 github.com/palantir/go-nobadfuncs
 github.com/palantir/go-nobadfuncs/cmd
 github.com/palantir/go-nobadfuncs/nobadfuncs
